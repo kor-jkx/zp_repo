@@ -70,6 +70,124 @@ class MainFrame(wx.MDIParentFrame):
         a = [[0] * 5 for _ in range(2)]
 
 
+def _menu():
+    # DEFINE PAD work OF _MSYSMENU PROMPT ' \<Главное  Меню ' MESSAGE '  Здесь  Ввод  данных,   Коppектиpовка  и  Расчеты  ' COLOR SCHEME 3
+    # DEFINE PAD sprav OF _MSYSMENU PROMPT ' \<Ведение  Справочников ' MESSAGE '   Своевременно  изменяйте  данные  Справочников !!! ' COLOR SCHEME 3
+    # DEFINE PAD print OF _MSYSMENU PROMPT ' \<Печать машинограмм ' MESSAGE ' Приготовьте  пожалуйста  ПРИНТЕР  и  бумагу  нужной  ширины  ! ' COLOR SCHEME 3
+    # DEFINE PAD podskas OF _MSYSMENU PROMPT ' \<Разное ' MESSAGE '   Помощь  и  Выход  из  обработки  ЗДЕСЬ !!!  ' COLOR SCHEME 2
+    # DEFINE PAD gasitel OF _MSYSMENU PROMPT '\<*' MESSAGE ' Запуск  гасителя  экpана ' KEY Ctrl-F5 COLOR SCHEME 3
+    # DEFINE POPUP popwork FROM 1, 1 SHADOW MARGIN RELATIVE COLOR SCHEME 4
+    # DEFINE BAR 1 OF popwork PROMPT '1. ВВОД  НАЧИСЛЕНИЙ  и  УДЕРЖАНИЙ '
+    # DEFINE BAR 2 OF popwork PROMPT '2. КОРРЕКТИРОВКА  НАЧИСЛЕНИЙ  и  УДЕРЖАНИЙ '
+    # DEFINE BAR 3 OF popwork PROMPT '3. ОБРАБОТКА  НАРЯДОВ ' SKIP FOR k_org<>'012' .AND. k_org<>'018'
+    # DEFINE BAR 4 OF popwork PROMPT '4. РАСЧЕТ  НАЧИСЛЕНИЙ и НАЛОГОВ с ЛОГ. ПРОВЕРКОЙ '
+    # DEFINE BAR 5 OF popwork PROMPT '5. КОПИРОВАНИЕ  МАССИВОВ  на  ДИСКЕТУ '
+    # DEFINE BAR 6 OF popwork PROMPT '6. ПЕРЕДАЧА  МАССИВОВ  в АРХИВ '
+    # DEFINE BAR 7 OF popwork PROMPT '          Выход  -->  Esc '
+    # ON SELECTION BAR 1 OF popwork do zvvod0
+    # ON SELECTION BAR 2 OF popwork do zkorr0
+    # IF k_org='012'
+    #    ON SELECTION BAR 3 OF popwork do znar012
+    #    ON SELECTION BAR 4 OF popwork do zrasz012
+    # ENDIF
+    # IF k_org='013'
+    #    ON SELECTION BAR 3 OF popwork do znar012
+    #    ON SELECTION BAR 4 OF popwork do zrasz013
+    # ENDIF
+    # IF k_org='017'
+    #    ON SELECTION BAR 3 OF popwork do znar012
+    #    ON SELECTION BAR 4 OF popwork do zrasz017
+    # ENDIF
+    # IF k_org='018'
+    #    ON SELECTION BAR 3 OF popwork do znar012
+    #    ON SELECTION BAR 4 OF popwork do zrasz017
+    # ENDIF
+    # IF k_org='033'
+    #    ON SELECTION BAR 3 OF popwork do znar012
+    #    ON SELECTION BAR 4 OF popwork do zrasz033
+    # ENDIF
+    # ON SELECTION BAR 5 OF popwork do zcopir1
+    # ON SELECTION BAR 6 OF popwork do zcopir2
+    # ON SELECTION BAR 7 OF popwork do vixod
+    # DEFINE POPUP popsprav FROM 1, 20 SHADOW MARGIN RELATIVE COLOR SCHEME 4
+    # DEFINE BAR 1 OF popsprav PROMPT ' 1. СПРАВОЧНИК  РАБОТАЮЩИХ  в ОРГАНИЗАЦИИ '
+    # DEFINE BAR 2 OF popsprav PROMPT ' 2. СПРАВОЧНИК  ВИДОВ  ОПЛАТ и УДЕРЖАНИЙ '
+    # DEFINE BAR 3 OF popsprav PROMPT ' 3. СПРАВОЧНИК  УЧАСТКОВ '
+    # DEFINE BAR 4 OF popsprav PROMPT ' 4. МИНИМАЛЬНЫЕ ОКЛАДЫ  и  СТАВКИ  НАЛОГОВ'
+    # DEFINE BAR 5 OF popsprav PROMPT ' 5. СПРАВОЧНИК  УВОЛЕННЫХ  из ОРГАНИЗАЦИИ '
+    # DEFINE BAR 6 OF popsprav PROMPT ' 6. СПРАВОЧНИК  ОФОРМЛЕНИЯ  ДОКУМЕНТОВ '
+    # DEFINE BAR 7 OF popsprav PROMPT '           Выход  -->  Esc '
+    # ON SELECTION BAR 1 OF popsprav do zkorzap1
+    # ON SELECTION BAR 2 OF popsprav do zkorsvou
+    # ON SELECTION BAR 3 OF popsprav do zkorbri
+    # ON SELECTION BAR 4 OF popsprav do zglobal
+    # ON SELECTION BAR 5 OF popsprav do zkoruvol
+    # ON SELECTION BAR 6 OF popsprav do zkorspr1
+    # ON SELECTION BAR 7 OF popsprav do vixod
+    # otk_l = 1
+    # DEFINE POPUP popprint FROM 1, 35 SHADOW MARGIN RELATIVE COLOR SCHEME 4
+    # DEFINE BAR 1 OF popprint PROMPT ' 1. КОНТР. РАСПЕЧАТКА  НАЧИСЛЕНИЙ и УДЕРЖАНИЙ =>' MESSAGE ' Здесь  только  контpольная  pаспечатка '
+    # DEFINE BAR 2 OF popprint PROMPT ' 2. РАСЧЕТНО-ПЛАТЕЖНАЯ  ВЕДОМОСТЬ ' MESSAGE ' Здесь  ПЕЧАТЬ  сумм  Начислено,  Удеpжано,  На pуки  или  Долг '
+    # DEFINE BAR 3 OF popprint PROMPT ' 3. РАСЧЕТНЫЙ ЛИСТОК - ЛИЦЕВОЙ СЧЕТ ' MESSAGE ' Здесь  ПЕЧАТЬ  по  ПРЕДПРИЯТИЮ  или  по  УЧАСТКАМ , ПЕРЕПЕЧАТКА '
+    # DEFINE BAR 4 OF popprint PROMPT ' 4. ПЛАТЕЖНАЯ  ВЕДОМОСТЬ  для  КАССЫ ' MESSAGE ' Пpедоставляется  Кассиpу  для  выдачи  денег '
+    # DEFINE BAR 5 OF popprint PROMPT ' 5. СВОДА  по  В/О, В/У, КАТЕГОРИЯМ, ШПЗ =>'
+    # DEFINE BAR 6 OF popprint PROMPT ' 6. НАЛОГОВАЯ  КАРТОЧКА '
+    # DEFINE BAR 7 OF popprint PROMPT ' 7. ОТЧЕТ  для НАЛОГОВОЙ  ИНСПЕКЦИИ ' MESSAGE ' В стадии  доpаботки ' SKIP FOR otk_l=1
+    # DEFINE BAR 8 OF popprint PROMPT ' 8. ВЕДОМОСТИ  НАЧИСЛЕНИЙ и ВЫПЛАТ по ФОНДАМ => ' MESSAGE ' В стадии  доpаботки ' SKIP FOR otk_l=1
+    # DEFINE BAR 9 OF popprint PROMPT ' 9. ВЕДОМОСТЬ  НЕ ВЫДАННОЙ  З/ПЛ. по ТАБ.N ' MESSAGE ' Для анализа  погашения задолженности  по pаботникам '
+    # DEFINE BAR 10 OF popprint PROMPT '10. ВЕДОМОСТЬ  на  АВАНС '
+    # DEFINE BAR 11 OF popprint PROMPT '11.  <= ПЕЧАТЬ  СПРАВОЧHИКОВ => '
+    # DEFINE BAR 12 OF popprint PROMPT '12. СПРАВКА  о  СРЕДНЕМ  ДОХОДЕ  для  СУБСИДИЙ '
+    # DEFINE BAR 13 OF popprint PROMPT '13. СПИСОК  на  ПЕРЕЧИСЛЕНИЕ АЛИМЕНТОВ  ПОЧТОЙ '
+    # DEFINE BAR 14 OF popprint PROMPT '14. СПРАВКА о ДОХОДАХ ФИЗИЧЕСКОГО ЛИЦА для ГОСНИ'
+    # DEFINE BAR 15 OF popprint PROMPT '15. СПРАВКА о СРЕДНЕМ ЗАРАБОТКЕ в отд. ЗАНЯТОСТИ'
+    # DEFINE BAR 16 OF popprint PROMPT '16. ИHСТРУКЦИЯ  ПОЛЬЗОВАТЕЛЯ ' MESSAGE ' В стадии  доpаботки ' SKIP FOR otk_l=1
+    # DEFINE BAR 17 OF popprint PROMPT '                  Выход  --> Esc '
+    # ON SELECTION BAR 1 OF popprint do zrasp0.prg
+    # ON SELECTION BAR 2 OF popprint do zplatwed
+    # ON SELECTION BAR 3 OF popprint do zraslist.prg
+    # ON SELECTION BAR 4 OF popprint do zkassa
+    # ON SELECTION BAR 5 OF popprint do zsvoda
+    # ON SELECTION BAR 6 OF popprint do znalkar
+    # ON SELECTION BAR 9 OF popprint do zdolgpr
+    # ON SELECTION BAR 10 OF popprint do zawans
+    # ON SELECTION BAR 11 OF popprint do zraspspr
+    # ON SELECTION BAR 12 OF popprint do zspravka
+    # ON SELECTION BAR 13 OF popprint do zpispozt
+    # ON SELECTION BAR 14 OF popprint do zpravnal
+    # ON SELECTION BAR 15 OF popprint do zpravsrz
+    # ON SELECTION BAR 17 OF popprint do vixod
+    # DEFINE POPUP poppom FROM 1, 65 SHADOW MARGIN RELATIVE COLOR SCHEME 4
+    # DEFINE BAR 1 OF poppom PROMPT '  ИHСТРУКЦИЯ '
+    # DEFINE BAR 2 OF poppom PROMPT 'ПЕРЕВЫБОР  МЕСЯЦА '
+    # DEFINE BAR 3 OF poppom PROMPT 'Календаpь всех лет' MESSAGE ' Если  нет  по pукой  настольного календаpя '
+    # DEFINE BAR 4 OF poppom PROMPT '  <= Выход => '
+    # IF k_org='012'
+    #    ON SELECTION BAR 1 OF poppom do prhelp.prg with "ALL","(*help013*) (*help017*) (*help018*) (*help033*)"
+    # ENDIF
+    # IF k_org='013'
+    #    ON SELECTION BAR 1 OF poppom do prhelp.prg with "ALL","(*help012*) (*help017*) (*help018*) (*help033*)"
+    # ENDIF
+    # IF k_org='017'
+    #    ON SELECTION BAR 1 OF poppom do prhelp.prg with "ALL","(*help012*) (*help013*) (*help018*) (*help033*)"
+    # ENDIF
+    # IF k_org='018'
+    #    ON SELECTION BAR 1 OF poppom do prhelp.prg with "ALL","(*help012*) (*help013*) (*help017*) (*help033*)"
+    # ENDIF
+    # IF k_org='033'
+    #    ON SELECTION BAR 1 OF poppom do prhelp.prg with "ALL","(*help012*) (*help013*) (*help017*) (*help018*)"
+    # ENDIF
+    # ON SELECTION BAR 2 OF poppom do zamendata
+    # ON SELECTION BAR 3 OF poppom do calendar
+    # ON SELECTION BAR 4 OF poppom do konez
+    # ON SELECTION PAD work OF _MSYSMENU ACTIVATE POPUP popwork
+    # ON SELECTION PAD sprav OF _MSYSMENU ACTIVATE POPUP popsprav
+    # ON SELECTION PAD print OF _MSYSMENU ACTIVATE POPUP popprint
+    # ON SELECTION PAD podskas OF _MSYSMENU ACTIVATE POPUP poppom
+    # ON SELECTION PAD gasitel OF _MSYSMENU do zkeeper
+    pass
+
+
 if __name__ == '__main__':
     app = wx.App()
     # start "ZAM"
