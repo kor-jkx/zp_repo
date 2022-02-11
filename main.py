@@ -76,6 +76,7 @@ def _menu():
     # DEFINE PAD print OF _MSYSMENU PROMPT ' \<Печать машинограмм ' MESSAGE ' Приготовьте  пожалуйста  ПРИНТЕР  и  бумагу  нужной  ширины  ! ' COLOR SCHEME 3
     # DEFINE PAD podskas OF _MSYSMENU PROMPT ' \<Разное ' MESSAGE '   Помощь  и  Выход  из  обработки  ЗДЕСЬ !!!  ' COLOR SCHEME 2
     # DEFINE PAD gasitel OF _MSYSMENU PROMPT '\<*' MESSAGE ' Запуск  гасителя  экpана ' KEY Ctrl-F5 COLOR SCHEME 3
+
     # DEFINE POPUP popwork FROM 1, 1 SHADOW MARGIN RELATIVE COLOR SCHEME 4
     # DEFINE BAR 1 OF popwork PROMPT '1. ВВОД  НАЧИСЛЕНИЙ  и  УДЕРЖАНИЙ '
     # DEFINE BAR 2 OF popwork PROMPT '2. КОРРЕКТИРОВКА  НАЧИСЛЕНИЙ  и  УДЕРЖАНИЙ '
